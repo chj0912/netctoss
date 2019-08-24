@@ -30,12 +30,11 @@ $(function () {
             $.ajax({
                 url: "http://localhost:8090/login.action",
                 type: "POST",
-                data: {"name":uname,"password":password},
-                dataType: "JSON",
-                contenttype:"application/json",
+                dataType: "json",
+                contentType:"application/json ; charset=UTF-8",
+                data:JSON.stringify({"name":uname,"password":password}),
                 success:function (data) {
-                   // var status =data.status;
-                    var status =0;
+                    var status =data.status;
                     var msg=data.msg;
                     if(status=="1"){
                         alert(msg);
